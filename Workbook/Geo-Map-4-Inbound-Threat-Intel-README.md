@@ -46,7 +46,7 @@ The query has five main activities:
 - Traffic aggregation and visualization
 
 ```kql Query
-// STEP 1: Build an active Threat Intelligence IP watchlist
+// STEP 1: Built an active Threat Intelligence IP watchlist to create a list of currently malicious IP addresses 
 let TI_IPs =
     ThreatIntelIndicators
     | where TimeGenerated > ago(30d)
@@ -128,23 +128,10 @@ NTANetAnalytics
 ```
   
 <p align="center">
-<h2>Step 1: Built a Threat Intelligence IP list to create a list of currently malicious IP addresses </h2>
-	
-Explanation:
-- Retrieves threat intelligence indicators from the last 30 days.
-- Removes duplicate indicators using arg_max().
-- Keeps only active indicators.
-- Excludes expired indicators.
-  
-<h2> Step 2: Identify IP address types: This filters the threat intelligence feed to focus on IP address indicators </h2>
-	
-<h2> Step 3: Extract threat information
-
-
-             
 <br />
+Screenshot showing malicious IP addresses
 <img src="https://i.imgur.com/bgZ3VZG.png" height="80%" width="80%" alt="/>
-https://i.imgur.com/bgZ3VZG.png
+	
 <br />
 Confirm your selection:  <br/>
 <img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
