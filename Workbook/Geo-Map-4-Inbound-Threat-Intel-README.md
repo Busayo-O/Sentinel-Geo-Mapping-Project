@@ -125,16 +125,21 @@ NTANetAnalytics(showing the Network traffic like Source IP, destination IP)
 
 | order by AllowedFlows desc, Targets desc
 ```
-  
+
+
 <p align="center">
 <br />
-Screenshot showing malicious IP addresses
-<img src="https://i.imgur.com/bgZ3VZG.png" height="80%" width="80%" alt="/>
+Screenshot showing malicious IP addresses	
+  <img src="https://i.imgur.com/bgZ3VZG.png" width="80%" alt="Malicious IP addresses screenshot">
+</p>
 
-	
-<br />
 ## Screenshot
-<img src="https://i.imgur.com/ZuJwwj4.png" height="80%" width="80%" alt="/>
+  <img src="https://i.imgur.com/ZuJwwj4.png" width="80%" alt="Screenshot">
+</p>
+  
+<p align="center">
+## Screenshot
+<img src="" height="80%" width="80%" alt="/>
 
 
 
