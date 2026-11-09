@@ -55,7 +55,7 @@ Explanation:
 - Keeps only active indicators.
 - Excludes expired indicators.
 
-<h2>Step 2: Identify IP address types: This filters the threat intelligence feed to focus on IP address indicators.
+<h2>Step 2: Identify IP address types: This filters the threat intelligence feed to focus on IP address indicators</h2>
 <img src="https://i.imgur.com/iNZUnMI.png" height="80%" width="80%" alt="/>	
 
 <h2>Step 3: Extract threat information
