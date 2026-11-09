@@ -66,13 +66,12 @@ let TI_IPs =
     | where isnotempty(TI_IP);
 
 // STEP 2: Retrieve allowed inbound network traffic
-NTANetAnalytics
-| where TimeGenerated {TimeRange}
+NTANetAnalytics(showing the Network traffic like Source IP, destination IP)
 | where SubType == "FlowLog"
 | where AllowedInFlows > 0
 | where isnotempty(SrcIp)
 
-// STEP 3: Match network traffic against threat intelligence
+// STEP 3: Match network traffic against threat intelligence. i.e joins two dissimilar tables where the IP addresses match (joining the NTANetAnalytics Table to the TI_IP's Output). It joins on the Source IP from the NTA Net Analytics table to the threat intelligence IP on the Threat intel Table. It joins from the threat intelligence table to the NTA Analytics table, where the IP addresses are the same
 | join kind=inner TI_IPs
     on $left.SrcIp == $right.TI_IP
 
@@ -131,10 +130,14 @@ NTANetAnalytics
 <br />
 Screenshot showing malicious IP addresses
 <img src="https://i.imgur.com/bgZ3VZG.png" height="80%" width="80%" alt="/>
+
 	
 <br />
-Confirm your selection:  <br/>
-<img src="https://i.imgur.com/cdFHBiU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+## Screenshot
+<img src="https://i.imgur.com/ZuJwwj4.png" height="80%" width="80%" alt="/>
+
+
+
 <br />
 <br />
 Wait for process to complete (may take some time):  <br/>
