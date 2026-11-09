@@ -59,22 +59,8 @@ Explanation:
 <img src="https://i.imgur.com/iNZUnMI.png" height="80%" width="80%" alt="/>	
 
 <h2>Step 3: Extract threat information</h2>
-<h2>Step 3: Extract threat information
-<img src="https://i.imgur.com/5xAvL7t.png" height="80%" width="80%" alt="/>	
-This extracts:
-- TI_IP: The suspicious IP address.
-- Confidence: How confident the threat intelligence source is.
-- ThreatType: The type of threat.
-- Tags: Additional threat intelligence information.
-	
-<br />
-<br />
-Select the disk:  <br/>
-<img src="https://i.imgur.com/tcTyMUE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Screenshot of KQL Query: <br/>
-<img src="https://i.imgur.com/bgZ3VZG.png" height="80%" width="80%" alt="/>
+
+
 <br />
 <br />
 Confirm your selection:  <br/>
