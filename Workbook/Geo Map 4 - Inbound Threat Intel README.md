@@ -1,20 +1,39 @@
-<h1>Inbound Threat Intel</h1>
+<h1>Allowed Inbound Flows from Threat Intelligence IPs</h1>
 
- ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
 
 <h2>Description</h2>
-Project consists of a simple PowerShell script that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
+This project uses Microsoft Sentinel and Kusto Query Language (KQL) to identify potentially malicious external IP addresses that have successfully sent traffic into the Cyber Range network.
+
+It combines two data sources:
+- ThreatIntelIndicators: Identifies known malicious or suspicious IP addresses.
+- NTANetAnalytics: Provides network traffic information, including allowed and denied inbound flows, entering and leaving the Cyber Range environment.
+The project enriches suspicious IP addresses with geographical information and displays their locations on a Microsoft Sentinel workbook map.
+
+The objective is to help security analysts identify suspicious inbound connections, determine which internal destinations were reached, and prioritize potentially dangerous network activity.
+
 <br />
 
+<h2>Objectives</h2>
 
-<h2>Languages and Utilities Used</h2>
+- Identify active threat intelligence IP addresses.
+- Detect inbound traffic originating from threat-intelligence-listed IPs.
+- Identify connections that were allowed into the network.
+- Determine the number of internal destinations reached.
+- Identify destination ports associated with suspicious traffic.
+- Enrich suspicious IP addresses with geographical information.
+- Visualize suspicious inbound connections using a geographical map.
+- Prioritize suspicious IP addresses for further investigation.</h2>
 
-- <b>PowerShell</b> 
-- <b>Diskpart</b>
-
-<h2>Environments Used </h2>
-
-- <b>Windows 10</b> (21H2)
+<h2>Technologies and Purpose</h2>
+	                           
+- Microsoft Sentinel	Security for monitoring and threat detection.
+- Microsoft Azure for Cloud environment.
+- Log Analytics Workspace	for Security log collection and analysis.
+- KQL for Querying and analyzing network traffic.
+- Threat Intel Indicators	for Threat intelligence information.
+- NTA Net Analytics	for Network traffic analysis.
+- IP Geolocation for identifying geographical locations.
+- Azure Monitor Workbooks for data visualization and reporting Environments Used. </h2>
 
 <h2>Program walk-through:</h2>
 
