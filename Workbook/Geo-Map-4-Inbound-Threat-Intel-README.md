@@ -71,7 +71,9 @@ NTANetAnalytics(showing the Network traffic like Source IP, destination IP)
 | where AllowedInFlows > 0
 | where isnotempty(SrcIp)
 
-// STEP 3: Match network traffic against threat intelligence. i.e joins two dissimilar tables where the IP addresses match (joining the NTANetAnalytics Table to the TI_IP's Output). It joins on the Source IP from the NTA Net Analytics table to the threat intelligence IP on the Threat intel Table. It joins from the threat intelligence table to the NTA Analytics table, where the IP addresses are the same
+// STEP 3: Match network traffic against threat intelligence. It compares the source IP addresses in your network traffic logs against the malicious IP addresses in your threat intelligence list. An IP address appears in the results only when it matches both datasets. i.e joins two dissimilar tables where the IP addresses match (joining the NTANetAnalytics Table to the TI_IP's Output). It joins on the Source IP from the NTA Net Analytics table to the threat intelligence IP on the Threat intel Table. It joins from the threat intelligence table to the NTA Analytics table, where the IP addresses are the same. It compares the source IP addresses in your network traffic logs against the malicious IP addresses in your threat intelligence list.
+
+An IP address appears in the results only when it matches both datasets.
 | join kind=inner TI_IPs
     on $left.SrcIp == $right.TI_IP
 
@@ -128,8 +130,8 @@ NTANetAnalytics(showing the Network traffic like Source IP, destination IP)
 
 
 <p align="center">
-<br />
-Screenshot showing malicious IP addresses	
+	
+## Screenshot showing malicious IP addresses	
   <img src="https://i.imgur.com/bgZ3VZG.png" width="80%" alt="Malicious IP addresses screenshot">
 </p>
 
@@ -137,32 +139,45 @@ Screenshot showing malicious IP addresses
   <img src="https://i.imgur.com/ZuJwwj4.png" width="80%" alt="Screenshot">
 </p>
   
-<p align="center">
-## Screenshot
-<img src="" height="80%" width="80%" alt="/>
-
-
-
-<br />
-<br />
-Wait for process to complete (may take some time):  <br/>
-<img src="https://i.imgur.com/JL945Ga.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Sanitization complete:  <br/>
-<img src="https://i.imgur.com/K71yaM2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br />
-Observe the wiped disk:  <br/>
-<img src="https://i.imgur.com/AeZkvFQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+## Screenshot showing the two tables joined together
+<img src="https://i.imgur.com/Cz0y43d.png" height="80%" width="80%" alt= "Screenshot"/>
 </p>
 
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
+## Screenshot showing the Json Workbook Map
+<img src="https://i.imgur.com/cMpNb2P.png" height="80%" width="80%" alt="Screenshot"/>
+</p>
+
+The map is configured with:
+Map feature         	Meaning
+Bubble size        Allowed inbound flows
+Bubble colour	   Intended to represent inbound data volume
+Map location	   Latitude and longitude of the source IP
+Map label	       IP address, city, country, allowed flows and targets
+
+
+Output
+The Microsoft Sentinel workbook produced two main visualizations:
+
+A. A Geographical threat intelligence map
+- Showing geographical locations of matched suspicious IP addresses.
+- Identified external IPs associated with allowed inbound traffic.
+- Displayed number of allowed flows.
+- Shows the number of internal destinations reached.
+- Geographical patterns were identified.
+  
+B. A Threat intelligence source breakdown table, which shows
+- Source IP address.
+- Country, state and city.
+- Allowed flows.
+- Denied flows.
+- Data volume received.
+- Destination ports.
+- Threat confidence.
+- Threat categories.
+
+## Project conclusion
+The project demonstrates how Microsoft Sentinel correlates threat intelligence indicators with actual network traffic to identify potentially malicious IP addresses that successfully communicated with cyber Range's internal environment.
+
+By combining threat intelligence, network traffic analysis, geographical enrichment and traffic aggregation, suspicious connections were identified, investigate potentially exposed internal systems and prioritize threats based on their network activity.
+
+
